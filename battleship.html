@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Battleship</title>
+
+    <style>
+        body {
+            font-family: Tahoma;
+            font-size: 16px;
+            background: lightskyblue;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
+        fieldset {
+            border: 1px blue solid;
+            margin: 15px auto 15px auto;
+            width: 25%;
+        }
+
+        legend {
+            color: blue;
+        }
+
+        h1, h3, p {
+            text-align: center;
+        }
+
+        p {
+            color: darkred;
+        }
+
+        img {
+            float: right;
+        }
+
+        span.gamemsg {
+            display: none;
+        }
+
+        #gameOverMsg {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Welcome to Battleship</h1>
+
+<!-- If either player loses both of their ships, the game is over -->
+<p>
+    <span id="gameOverMsg">Game Over</span>
+</p>
+<div id="board">
+    <span id="playerOne">
+        <h3>Player One</h3>
+
+        <!-- Player 1's submarine has three checkboxes -->
+        <fieldset>
+            <legend>Submarine</legend>
+            <img src="submarine.JPG" alt="Submarine" width="50%"/>
+            <label><input type="checkbox" id="p1_sub_spot1"/> Spot 1</label><br/>
+            <label><input type="checkbox" id="p1_sub_spot2"/> Spot 2</label><br/>
+            <label><input type="checkbox" id="p1_sub_spot3"/> Spot 3</label>
+        </fieldset>
+
+        <!-- Player 1's battleship has four checkboxes -->
+        <fieldset>
+            <legend>Battleship</legend>
+            <img src="battleship.JPG" alt="Battleship" width="50%"/>
+            <label><input type="checkbox" id="p1_bship_spot1"/> Spot 1</label><br/>
+            <label><input type="checkbox" id="p1_bship_spot2"/> Spot 2</label><br/>
+            <label><input type="checkbox" id="p1_bship_spot3"/> Spot 3</label><br/>
+            <label><input type="checkbox" id="p1_bship_spot4"/> Spot 4</label>
+        </fieldset>
+
+        <!-- Spans are initially hidden with CSS -->
+        <p>
+            <span class="gamemsg" id="p1_sub_msg">Player One's submarine was sunk!</span><br/>
+            <span class="gamemsg" id="p1_bship_msg">Player One's battleship was sunk!</span><br/>
+        </p>
+    </span>
+
+    <span id="playerTwo">
+        <h3>Player Two</h3>
+
+        <!-- Player 2's submarine has three checkboxes -->
+        <fieldset>
+            <legend>Submarine</legend>
+            <img src="submarine.JPG" alt="Submarine" width="50%"/>
+            <label><input type="checkbox" id="p2_sub_spot1"/> Spot 1</label><br/>
+            <label><input type="checkbox" id="p2_sub_spot2"/> Spot 2</label><br/>
+            <label><input type="checkbox" id="p2_sub_spot3"/> Spot 3</label>
+        </fieldset>
+
+        <!-- Player 2's battleship has four checkboxes -->
+        <fieldset>
+            <legend>Battleship</legend>
+            <img src="battleship.JPG" alt="Battleship" width="50%"/>
+            <label><input type="checkbox" id="p2_bship_spot1"/> Spot 1</label><br/>
+            <label><input type="checkbox" id="p2_bship_spot2"/> Spot 2</label><br/>
+            <label><input type="checkbox" id="p2_bship_spot3"/> Spot 3</label><br/>
+            <label><input type="checkbox" id="p2_bship_spot4"/> Spot 4</label>
+        </fieldset>
+
+        <!-- Spans are initially hidden with CSS -->
+        <p>
+            <span class="gamemsg" id="p2_sub_msg">Player Two's submarine was sunk!</span><br/>
+            <span class="gamemsg" id="p2_bship_msg">Player Two's battleship was sunk!</span><br/>
+        </p>
+    </span>
+</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+    $(init);
+
+    function init() {
+        $("input[type=checkbox]").change(placePeg);
+    }
+
+    function placePeg() {
+        // p1_sub_hasPeg1 will be true if checkbox is checked
+        var p1_sub_hasPeg1 = $("#p1_sub_spot1").is(":checked");
+        var p1_sub_hasPeg2;
+        var p1_sub_hasPeg3;
+
+        // How do we know if player 1's submarine was sunk?
+        if () {
+            $("#p1_sub_msg").show();
+        }
+
+        // p1_bship_hasPeg1 will be true if checkbox is checked
+        var p1_bship_hasPeg1 = $("#p1_bship_spot1").is(":checked");
+        var p1_bship_hasPeg2;
+        var p1_bship_hasPeg3;
+        var p1_bship_hasPeg4;
+
+        // If player 1's battleship was sunk
+        if () {
+            $("#p1_bship_msg").show();
+        }
+
+        // p2_sub_hasPeg1 will be true if checkbox is checked
+        var p2_sub_hasPeg1 = $("#p2_sub_spot1").is(":checked");
+        var p2_sub_hasPeg2;
+        var p2_sub_hasPeg3;
+
+        // If player 2's submarine was sunk
+        if () {
+            $("#p2_sub_msg").show();
+        }
+
+        // p2_bship_hasPeg1 will be true if checkbox is checked
+        var p2_bship_hasPeg1 = $("#p2_bship_spot1").is(":checked");
+        var p2_bship_hasPeg2;
+        var p2_bship_hasPeg3;
+        var p2_bship_hasPeg4;
+
+        // If player 2's battleship was sunk
+        if () {
+            $("#p2_bship_msg").show();
+        }
+
+        // If both of player 1's ships were sunk
+        // OR
+        // both of player 2's ships were sunk
+        if () {
+            $("#gameOverMsg").show();
+        }
+    }
+
+</script>
+</html>
